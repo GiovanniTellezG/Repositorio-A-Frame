@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proyecto</title>
+
+    <!-- icono de la pestaña -->
+    <!-- <link rel="shortcut icon" href="./imagenes/inflable.png"> -->
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE-edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repertorio A-frame</title>
+    <!-- icono del la pestaña -->
+    <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+    <!-- link de la librería para leer las etiquetas de aframe -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- script para gifs -->
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+    <!-- para leer animación -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- script para texturas -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+    <!-- script para texto en 3D -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <!-- script para interacciones -->
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <!-- scripts movimiento de la cámara -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+    <!-- scripts para partículas-->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+    <!-- scripts para environments-->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <!-- scripts para animación de agua -->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <!-- scripts para truco de transparencia en modelos 3D -->
+    <script>
+        AFRAME.registerComponent('model-opacity', {
+            schema: { default: 1.0 },
+            init: function () {
+                this.el.addEventListener("model-loaded", () => {
+                    const object3DEl = this.el.object3DMap;
+                    var mesh = this.el.getObject3D('mesh');
+                    var data = this.data;
+                    if (!mesh) { return; }
+                    mesh.traverse(function (node) {
+                        if (node.isMesh) {
+                            node.material.opacity = data;
+                            node.material.transparent = data < 1.0;
+                            node.material.needsUpdate = true;
+                        }
+                    });
+                }, 2000);
+            },
+            update: function () {
+                var mesh = this.el.getObject3D('mesh');
+                var data = this.data;
+                if (!mesh) { return; }
+                mesh.traverse(function (node) {
+                    if (node.isMesh) {
+                        node.material.opacity = data;
+                        node.material.transparent = data < 1.0;
+                        node.material.needsUpdate = true;
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- script para links -->
+</head>
+  
+  <body>
+    <a-scene light="defaultLightsEnabled: false" fog="color: white; far: 50; density: 0.1" shadow="type: basic">
+
+      
+      
+      <a-asset>
+        <!-- imagenes -->
+        
+        <img id="sky3" src="./Biblioteca/Imagenes/sky3.jpg">
+        <img id="cuadros" src="./Biblioteca/Imagenes/cuadros.jpg">
+        <img id="pared" src="./Biblioteca/Imagenes/concreto.jpg">
+
+        <!-- logos -->
+
+        <img id="beatles_logo" src="./Biblioteca/Imagenes/logos/Beatles logo.png">
+        <a-asset-item id="beatles1" src="./Biblioteca/Imagenes/gift/beatles 1.gif"></a-asset-item>
+
+        <!-- modelos -->
+      
+        <a-asset-item id="Puerta" src="./Biblioteca/Modelos/puerta_de_madera/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pilar" src="./Biblioteca/Modelos/marble_pilar/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pared" src="./Biblioteca/Modelos/grungy_brick_wall/scene.gltf"></a-asset-item>
+        <a-asset-item id="Guitarra" src="./Biblioteca/Modelos/fender_stratocaster__guitar/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pared_bloques" src="./Biblioteca/Modelos/pared_y_piso_de_piedras/scene.gltf"></a-asset-item>
+        <a-asset-item id="Spotlight" src="./Biblioteca/Modelos/spotlight.gltf"></a-asset-item>
+      </a-asset>
+
+      <!-- Cielo -->
+      <a-sphere color="#82bbc9" radius="500" material="src: ./Biblioteca/Imagenes/sky3.jpg; side: double;" animation="property:rotation; to: 0 360 0; loop:true; dur:201900"></a-sphere>
+
+      <!-- camara -->
+      <a-camera camera position="0 1.5 4" look-controls="enabled: true"><a-cursor></a-cursor></a-camera>
+
+      <a-light type="spot" color="#FFffff" position="0 10 0" rotation="-90 0 0" intensity="1" angle="10" penumbra="0.4" castshadow="true"></a-light>
+     
+
+      <a-box position="10 2.5 0" rotation="0 0 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+
+      <a-box position="-10 2.5 0" rotation="0 0 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+
+      <a-box position="0 2.5 10" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+
+      <a-box position="0 2.5 -10" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+
+      <a-box position="0 5.1 0" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale="20 .5 20" side="double"></a-box>
+
+      <a-box position="0 0 0" rotation="0 90 0" material="src:#cuadros; repeat: 10 10; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale="20 .5 20" side="double"></a-box>
+
+      <!-- Puerta de salida -->
+      <a-entity position="0 0 9.7" rotation="0 -180 0"  event-set__1="_event: mouseenter; _target: #P1; material.color: red; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P1; material.color: black; transparent: true; opacity: 0">
+        <a-light type="spot" color="#FFffff" position="0 0 4" rotation="15 0 0" intensity="" angle="20" penumbra="0.4" castshadow="true"></a-light>
+
+        <a-box id="P1" width="1" height="1" scale="1.66 2.8 1" depth="0.1" position=".05 1 -.05" material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+
+        <a-entity gltf-model="#Puerta" position="0 0 .9" rotation="0 0 0" scale=".5 .5 .5" material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" link="href:index.html" class="clickable">
+        </a-entity>
+        <a-entity gltf-model="#Pared_bloques" position=".15 0 -0.05" rotation="0 0 0" scale="1 1 1" material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"></a-entity>
+        <a-entity
+                text-geometry="value: The Beatles; size: 5; height: 3; bevelEnabled: true; bevelSize: 0.04; bevelThickness: 0.04; curveSegments: 5.020"
+                material="shader: standard; color:#c974cd" rotation="0 180 0" position="8.092 1.117 -6.635"
+                scale="0.190 0.190 0.190"></a-entity>
+      <div class="a-loader-title" style="display: none;">Proyecto</div>
+    </a-scene>
+  </body>
+</html>

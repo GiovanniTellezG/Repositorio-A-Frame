@@ -1,0 +1,11 @@
+Model Information:
+* title:	Puerta de madera
+* source:	https://sketchfab.com/3d-models/puerta-de-madera-2a4625509a70450b9a3d7386c7b76ae7
+* author:	Ceju (https://sketchfab.com/ceju)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Puerta de madera" (https://sketchfab.com/3d-models/puerta-de-madera-2a4625509a70450b9a3d7386c7b76ae7) by Ceju (https://sketchfab.com/ceju) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

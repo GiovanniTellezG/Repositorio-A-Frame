@@ -1,0 +1,11 @@
+Model Information:
+* title:	Seiya Tenkai Hen
+* source:	https://sketchfab.com/3d-models/seiya-tenkai-hen-16b67a9ca6274f109bd3c949d46bf5dc
+* author:	RaulV2 (https://sketchfab.com/RaulV2)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Seiya Tenkai Hen" (https://sketchfab.com/3d-models/seiya-tenkai-hen-16b67a9ca6274f109bd3c949d46bf5dc) by RaulV2 (https://sketchfab.com/RaulV2) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

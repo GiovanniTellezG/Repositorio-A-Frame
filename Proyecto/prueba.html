@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brillo en la mira</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <!-- Jugador (cámara) -->
+        <a-camera position="0 2 0"><a-cursor></a-cursor></a-camera>
+
+        <!-- Modelo que debe brillar -->
+        <a-box
+            position="0 1 -5"
+            color="grey"
+            scale="1 1 1"
+            animation__mouseenter="property: components.material.material.emissive; type: color; from: black; to: red; scale: 2 2 2; startEvents: mouseenter; dur: 200; easing: linear;"
+            animation__mouseleave="property: components.material.material.emissive; type: color; from: red; to: black; scale: 1 1 1; startEvents: mouseleave; dur: 200; easing: linear;"
+            event-set__mouseenter="_event: mouseenter; material.opacity: 1;"
+            event-set__mouseleave="_event: mouseleave; material.opacity: 0.5; "
+        ></a-box>
+    </a-scene>
+</body>
+
+</html>

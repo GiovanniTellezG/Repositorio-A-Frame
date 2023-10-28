@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proyecto</title>
+
+    <!-- icono de la pestaña -->
+    <!-- <link rel="shortcut icon" href="./imagenes/inflable.png"> -->
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE-edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repertorio A-frame</title>
+    <!-- icono del la pestaña -->
+    <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+    <!-- link de la librería para leer las etiquetas de aframe -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- script para gifs -->
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+    <!-- para leer animación -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- script para texturas -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+    <!-- script para texto en 3D -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <!-- script para interacciones -->
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <!-- scripts movimiento de la cámara -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+    <!-- scripts para partículas-->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+    <!-- scripts para environments-->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <!-- scripts para animación de agua -->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <!-- scripts para truco de transparencia en modelos 3D -->
+    <script>
+        AFRAME.registerComponent('model-opacity', {
+            schema: { default: 1.0 },
+            init: function () {
+                this.el.addEventListener("model-loaded", () => {
+                    const object3DEl = this.el.object3DMap;
+                    var mesh = this.el.getObject3D('mesh');
+                    var data = this.data;
+                    if (!mesh) { return; }
+                    mesh.traverse(function (node) {
+                        if (node.isMesh) {
+                            node.material.opacity = data;
+                            node.material.transparent = data < 1.0;
+                            node.material.needsUpdate = true;
+                        }
+                    });
+                }, 2000);
+            },
+            update: function () {
+                var mesh = this.el.getObject3D('mesh');
+                var data = this.data;
+                if (!mesh) { return; }
+                mesh.traverse(function (node) {
+                    if (node.isMesh) {
+                        node.material.opacity = data;
+                        node.material.transparent = data < 1.0;
+                        node.material.needsUpdate = true;
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- script para links -->
+</head>
+  
+  <body>
+    <a-scene light="defaultLightsEnabled: false" fog="color: #700900; far: 30; density: 1" shadow="type: basic" physics="debug:true" reflection="directionalLight:a-light#dirlight;">
+      
+      <a-asset>
+        <!-- imagenes -->
+
+        <img id="sky3" src="./Biblioteca/Imagenes/sky3.jpg">
+        <img id="slab" src="./Biblioteca/Imagenes/slab.jpg">
+        <img id="pared" src="./Biblioteca/Imagenes/concreto.jpg">
+
+        <!-- logos -->
+
+        <img id="beatles_logo" src="./Biblioteca/Imagenes/logos/Beatles logo.png">
+        <img id="queen_logo" src="./Biblioteca/Imagenes/logos/Queen logo.png">
+        <img id="led_logo" src="./Biblioteca/Imagenes/logos/led.png">
+        <img id="rolling_logo" src="./Biblioteca/Imagenes/logos/rolling logo.png">
+        <img id="hendrix_logo" src="./Biblioteca/Imagenes/logos/hendrix logo.png">
+
+        <!-- modelos -->
+
+        <a-asset-item id="Puerta" src="./Biblioteca/Modelos/puerta_de_madera/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pilar" src="./Biblioteca/Modelos/marble_pilar/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pared" src="./Biblioteca/Modelos/grungy_brick_wall/scene.gltf"></a-asset-item>
+        <a-asset-item id="Guitarra" src="./Biblioteca/Modelos/fender_stratocaster__guitar/scene.gltf"></a-asset-item>
+        <a-asset-item id="Pared_bloques" src="./Biblioteca/Modelos/pared_y_piso_de_piedras/scene.gltf"></a-asset-item>
+        <a-asset-item id="Spotlight" src="./Biblioteca/Modelos/spotlight.gltf"></a-asset-item>
+
+        <!-- animados -->
+        <a-asset-item id="Manelegant" src="./Biblioteca/Modelos/con animacion/Manelegantanim.gltf"></a-asset-item>
+      </a-asset>
+
+      <!-- camara -->
+      <a-camera 
+      camera position="0 1.5 4" 
+      look-controls="enabled: true"
+      dynamic-body
+      ><a-cursor></a-cursor></a-camera>
+
+      <!-- Paredes -->
+
+      <a-box 
+      position="10 4.99 0" 
+      rotation="0 0 0" 
+      material="src:#pared; repeat: 5 5; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale=".5 10 20" 
+      side="double"
+      static-body="shape: box; mass: 2"
+      ></a-box>
+
+      <a-box 
+      position="-10 4.99 0" 
+      rotation="0 0 0" 
+      material="src:#pared; repeat: 5 5; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale=".5 10 20" 
+      side="double"
+      static-body
+      ></a-box>
+
+      <a-box 
+      position="0 4.99 10" 
+      rotation="0 90 0" 
+      material="src:#pared; repeat: 5 5; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale=".5 10 20" 
+      side="double"
+      static-body
+      ></a-box>
+
+      <a-box 
+      position="0 4.99 -10" 
+      rotation="0 90 0" 
+      material="src:#pared; repeat: 5 5; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale=".5 10 20" side="double"
+      static-body
+      ></a-box>
+      
+      <!-- Suelo -->
+
+      <a-box 
+      position="0 0 0" 
+      rotation="0 90 0" 
+      material="src:#slab; repeat: 80 80; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale="40 .5 40" 
+      side="double"
+      ></a-box>
+
+      <!-- Techo -->
+      <a-box 
+      position="0 10 0" 
+      rotation="0 90 0" 
+      material="src:#pared; repeat: 5 5; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale="40 .5 40" 
+      side="double"
+      ></a-box>
+
+<!-- este -->
+      <!-- beatles -->
+      <a-entity 
+      position="-9 0 0" 
+      rotation="0 90 0"  
+      event-set__1="_event: mouseenter; _target: #P1; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P1; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="30" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#beatles_logo" 
+        position="0 5 0" 
+        width="4"
+        height="2" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P1" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+        <!-- modelo animado -->
+        <a-entity 
+        gltf-model="#Manelegant" 
+        position=".8 .21 0.5" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        animation-mixer
+        ></a-entity>
+      </a-entity>
+      
+      <!-- queen -->
+      <a-entity 
+      position="-9 0 -5" 
+      rotation="0 90 0"  
+      event-set__1="_event: mouseenter; _target: #P2; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P2; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="20" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 2000"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#queen_logo" 
+        position="0 5 0" 
+        width="4"
+        height="2" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P2" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+      </a-entity>
+
+<!-- oeste -->
+     <!-- Rolling stones -->
+      <a-entity 
+      position="9 0 0" 
+      rotation="0 -90 0"
+      event-set__1="_event: mouseenter; _target: #P3; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P3; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="20" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 500"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#rolling_logo" 
+        position="0 5 0" 
+        width="4"
+        height="4" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P3" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+      </a-entity>
+      <!-- Led Zeppelin -->
+      <a-entity 
+      position="9 0 -5" 
+      rotation="0 -90 0"
+      event-set__1="_event: mouseenter; _target: #P4; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P4; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="20" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 800"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#led_logo" 
+        position="0 5 0" 
+        width="4"
+        height="" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P4" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+      </a-entity>
+        
+<!-- norte -->
+<!-- Hendrix -->
+      <a-entity position="5 0 -9"
+      rotation="0 0 0" 
+      event-set__1="_event: mouseenter; _target: #P5; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P5; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="20" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1000"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#hendrix_logo" 
+        position="0 5 0" 
+        width="4"
+        height="4" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P5" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+      </a-entity>
+<!-- Elvis -->
+      <a-entity position="-5 0 -9" 
+      rotation="0 0 00" 
+      event-set__1="_event: mouseenter; _target: #P6; material.color: white; transparent: true; opacity: 1"
+      event-set__2="_event: mouseleave; _target: #P36; material.color: black; transparent: true; opacity: 0">
+      <!-- Luz A -->
+        <a-light 
+        type="spot" 
+        color="#FFCE03" 
+        position="2 0 5" 
+        rotation="42 10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+      <!-- Luz B -->
+        <a-light 
+        type="spot" 
+        color="#AE0006" 
+        position="-2 0 5" 
+        rotation="42 -10 0" 
+        intensity="1" 
+        angle="10" 
+        penumbra="0.2" 
+        castshadow="true" 
+        light="intensity: 1.11; penumbra: 0.44; decay: -1.02; distance: 7"
+        ></a-light>
+        <!-- Spot puerta -->
+        <a-light 
+        type="spot" 
+        color="#FFffff" 
+        position="0 0 4" 
+        rotation="15 0 0" 
+        intensity="1" 
+        angle="20" 
+        penumbra="0.4" 
+        castshadow="true"
+        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1200"
+        ></a-light>
+        <!-- Logo -->
+        <a-image 
+        src="#rolling_logo" 
+        position="0 5 0" 
+        width="4"
+        height="4" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+        <!-- Caja interacción -->
+        <a-box
+        id="P6" width="1"
+        height="1"
+        scale="1.66 2.8 1"
+        depth="0.1"
+        position=".05 1 -.05"
+        material="color: black; transparent: true; opacity: 0"
+        ></a-box>
+        <!-- Puerta -->
+        <a-entity 
+        gltf-model="#Puerta" 
+        position="0 0 .9" 
+        rotation="0 0 0" 
+        scale=".5 .5 .5" 
+        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+        link="href: S1.html" 
+        class="clickable">
+        </a-entity>
+        <!-- Bloques de pared -->
+        <a-entity 
+        gltf-model="#Pared_bloques" 
+        position=".15 0 -0.05" 
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"
+        ></a-entity>
+      </a-entity>
+
+
+      <!-- guitarra -->
+      <a-entity position=" 0 0 -8" rotation="0 0 0">
+      
+          <a-sphere 
+          position="0 8 0" 
+          rotation="-75 0 0" 
+          material="color:#FFffff" 
+          scale=".3 .3. .3" 
+          light="type: spot; color: #FCE93F; castShadow: true; intensity: 1; angle:10;penumbra:0.4" 
+          animation="property: rotation; to: -105 0 ; dir: alternate; easing: linear; loop: true;dur: 1000"
+          ></a-sphere>
+          <a-sphere 
+          position="0 8 0" 
+          rotation="0 0 0"
+          material="color: #EF2D5E receiveShadow: false"  
+          scale=".3 .3. .3" 
+          light="type: point; color: #0002FF; castShadow: True; intensity: .5;" 
+          ></a-sphere>
+         <!-- modelo -->
+          <a-entity gltf-model="#Guitarra" position="0 .3 0" rotation="0 -90 0" scale="1.5 1.5 1.5" material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"></a-entity>
+      </a-entity>
+      <!-- <script>
+        AFRAME.registerComponent('highlight-on-look', {
+            init: function () {
+                const el = this.el;
+
+                el.addEventListener('mouseenter', function () {
+                    el.setAttribute('material', 'emissive', 'red');
+                });
+
+                el.addEventListener('mouseleave', function () {
+                    el.setAttribute('material', 'emissive', 'none');
+                });
+            }
+        });
+    </script> -->
+
+
+      <div class="a-loader-title" style="display: none;">Proyecto</div>
+    </a-scene>
+  </body>
+</html>
