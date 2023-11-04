@@ -2,149 +2,318 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>proyecto</title>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Beatles</title>
+  <!-- icono del la pestaña -->
+  <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+  <!-- link de la libreria para leer las etiquetas de aframe -->
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<!-- script para gifs -->
+<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+<script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+<!-- para leer animación -->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+<!-- script para texturas -->
+<script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+<!-- script para texto en 3d -->
+<script src="https://unpkg.com/aframe-text-geometry-component@0.5.2/dist/aframe-text-geometry-component.min.js"></script>
+<!-- script para interacciones -->
+<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+<!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
+<!-- scripts movimiento de la cámara -->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+<script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+<!-- scripts para partículas-->
+<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+<script src="https://unpkg.com/aframe-particle-system-component@1.1.3/dist/aframe-particle-system-component.min.js"></script>
+<script src="https://unpkg.com/aframe-extras.ocean@latest/dist/aframe-extras.ocean.min.js"></script>
+<script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+<!-- scripts para enviroments-->
+<script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+<!-- scipts para animacion de agua -->
+<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.ocean.min.js"></script>
+<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
 
-    <!-- icono de la pestaña -->
-    <!-- <link rel="shortcut icon" href="./imagenes/inflable.png"> -->
-    <meta charset="UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE-edge"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repertorio A-frame</title>
-    <!-- icono del la pestaña -->
-    <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
-    <!-- link de la librería para leer las etiquetas de aframe -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- script para gifs -->
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
-    <!-- para leer animación -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <!-- script para texturas -->
-    <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
-    <!-- script para texto en 3D -->
-    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
-    <!-- script para interacciones -->
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-    <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
-    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
-    <!-- scripts movimiento de la cámara -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
-    <!-- scripts para partículas-->
-    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
-    <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
-    <!-- scripts para environments-->
-    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
-    <!-- scripts para animación de agua -->
-    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
-    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-    <!-- scripts para truco de transparencia en modelos 3D -->
-    <script>
-        AFRAME.registerComponent('model-opacity', {
-            schema: { default: 1.0 },
-            init: function () {
-                this.el.addEventListener("model-loaded", () => {
-                    const object3DEl = this.el.object3DMap;
-                    var mesh = this.el.getObject3D('mesh');
-                    var data = this.data;
-                    if (!mesh) { return; }
-                    mesh.traverse(function (node) {
-                        if (node.isMesh) {
-                            node.material.opacity = data;
-                            node.material.transparent = data < 1.0;
-                            node.material.needsUpdate = true;
-                        }
-                    });
-                }, 2000);
-            },
-            update: function () {
-                var mesh = this.el.getObject3D('mesh');
-                var data = this.data;
-                if (!mesh) { return; }
-                mesh.traverse(function (node) {
-                    if (node.isMesh) {
-                        node.material.opacity = data;
-                        node.material.transparent = data < 1.0;
-                        node.material.needsUpdate = true;
-                    }
-                });
-            }
-        });
-    </script>
-    <!-- script para links -->
+  <!-- scripts para truco de transparencia en modelos 3d-->
+  <script>
+      AFRAME.registerComponent('model-opacity', {
+          schema: { default: 1.0 },
+          init: function () {
+              // this.el.addEventListener('model-loaded', this.update.bind(this));
+              this.el.addEventListener("model-loaded", () => {
+                  const object3DEl = this.el.object3DMap;
+                  ;
+
+
+
+
+
+
+
+
+                  var mesh = this.el.getObject3D('mesh'); // For hand, the result is undefined
+                  // var mesh = this.el.object3DMap.mesh; // For hand, the result is undefined
+                  console.log(mesh);
+                  var data = this.data;
+                  if (!mesh) { return; }
+                  mesh.traverse(function (node) {
+                      if (node.isMesh) {
+                          ;
+                          node.material.opacity = data;
+                          node.material.transparent = data < 1.0;
+                          node.material.needsUpdate = true;
+                      }
+                  });
+              }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          },
+          update: function () {
+              var mesh = this.el.getObject3D('mesh');
+              var data = this.data;
+              if (!mesh) { return; }
+              mesh.traverse(function (node) {
+                  if (node.isMesh) {
+                      ;
+                      node.material.opacity = data;
+                      node.material.transparent = data < 1.0;
+                      node.material.needsUpdate = true;
+                  }
+              });
+          }
+      });
+  </script>
 </head>
   
   <body>
-    <a-scene light="defaultLightsEnabled: false" fog="color: white; far: 50; density: 0.1" shadow="type: basic">
-
-      
-      
+    <a-scene light="defaultLightsEnabled: false" fog="color: #FFFFFF; far: 12; density:.3" shadow="type: basic" physics="gravity: 0; debug: false" reflection="directionalLight:a-light#dirlight;">
       <a-asset>
-        <!-- imagenes -->
-        
-        <img id="sky3" src="./Biblioteca/Imagenes/sky3.jpg">
-        <img id="cuadros" src="./Biblioteca/Imagenes/cuadros.jpg">
-        <img id="pared" src="./Biblioteca/Imagenes/concreto.jpg">
+        <!-- Texturas -->
+        <img id="piso" src="./Biblioteca/Sala 1 Beatles/Texturas/Piso.jpg">
+        <img id="pared" src="./Biblioteca/Sala 1 Beatles/Texturas/Pared.jpg">
+
+        <!-- Señaletica -->
+        <img id="salida" src="./Biblioteca/Sala 1 Beatles/Señaletica/Salida.png">
 
         <!-- logos -->
 
         <img id="beatles_logo" src="./Biblioteca/Imagenes/logos/Beatles logo.png">
-        <a-asset-item id="beatles1" src="./Biblioteca/Imagenes/gift/beatles 1.gif"></a-asset-item>
+        <img id="queen_logo" src="./Biblioteca/Imagenes/logos/Queen logo.png">
+        <img id="led_logo" src="./Biblioteca/Imagenes/logos/led.png">
+        <img id="rolling_logo" src="./Biblioteca/Imagenes/logos/rolling logo.png">
+        <img id="hendrix_logo" src="./Biblioteca/Imagenes/logos/hendrix logo.png">
+        <img id="elvis_logo" src="./Biblioteca/Imagenes/logos/elvis logo.png">
 
         <!-- modelos -->
-      
+
         <a-asset-item id="Puerta" src="./Biblioteca/Modelos/puerta_de_madera/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pilar" src="./Biblioteca/Modelos/marble_pilar/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pared" src="./Biblioteca/Modelos/grungy_brick_wall/scene.gltf"></a-asset-item>
-        <a-asset-item id="Guitarra" src="./Biblioteca/Modelos/fender_stratocaster__guitar/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pared_bloques" src="./Biblioteca/Modelos/pared_y_piso_de_piedras/scene.gltf"></a-asset-item>
-        <a-asset-item id="Spotlight" src="./Biblioteca/Modelos/spotlight.gltf"></a-asset-item>
+        <a-asset-item id="estatua" src="./Biblioteca/Sala 1 Beatles/Modelos/the_beatles_statue/scene.gltf"></a-asset-item>
+
+        <!-- animados -->
+        <a-asset-item id="A1" src="./Biblioteca/Modelos/con animacion/A1/A1.gltf"></a-asset-item>
+        <!-- música-->
+        <audio id="backgroundMusic" autoplay loop="true" src="./Biblioteca/Sala 1 Beatles/Audio/The Beatles Please Please Me Full Album.mp3"></audio>
+        <!-- video-->
+        <video id="historia" controls="true" src="./Biblioteca/Sala 1 Beatles/Video/La Historia The Beatles _ Las Historias Del Rock.mp4"></video>
+      
+      
       </a-asset>
 
-      <!-- Cielo -->
-      <a-sphere color="#82bbc9" radius="500" material="src: ./Biblioteca/Imagenes/sky3.jpg; side: double;" animation="property:rotation; to: 0 360 0; loop:true; dur:201900"></a-sphere>
 
       <!-- camara -->
-      <a-camera camera position="0 1.5 4" look-controls="enabled: true"><a-cursor></a-cursor></a-camera>
+      <a-entity movement-controls kinematic-body>
+        <a-entity 
+        id="camera" 
+        camera position="0 1.6 3" 
+        look-controls >
+        <a-entity cursor="fuse: false;" 
+        position="0 0 -1" 
+        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011" material="color: #FFffff; shader: flat"></a-entity></a-entity></a-entity>
 
-      <a-light type="spot" color="#FFffff" position="0 10 0" rotation="-90 0 0" intensity="1" angle="10" penumbra="0.4" castshadow="true"></a-light>
-     
+        <!-- luz general -->
+        <a-sphere 
+          position="0 5.5 0" 
+          rotation="0 0 0"
+          material="color: #EBE501 Cast castShadow: true"  
+          scale=".3 .3. .3" 
+          light="type: point; color: #FFFFFF; castShadow: True; intensity: 1;" 
+          ></a-sphere>
+      <!-- Paredes -->
+      <a-box 
+        position="6 3 0" 
+        rotation="0 0 0" 
+        material="src:#pared; repeat: 3 3; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+        scale=".5 6 12" 
+        side="double"
+        static-body
+        ></a-box>
+        <a-box 
+        position="-6 3 0" 
+        rotation="0 0 0" 
+        material="src:#pared; repeat: 3 3; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+        scale=".5 6 12" 
+        side="double"
+        static-body
+        ></a-box>
+        <a-box 
+        position="0 3 6" 
+        rotation="0 90 0" 
+        material="src:#pared; repeat: 3 3; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+        scale=".5 6 12" 
+        side="double"
+        static-body
+        ></a-box>
+        <a-box 
+        position="0 3 -6" 
+        rotation="0 90 0" 
+        material="src:#pared; repeat: 3 3; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+        scale=".5 6 12" side="double"
+        static-body
+        ></a-box>
+      
+      
+      <!-- Suelo -->
+      <a-plane static-body 
+      position="0 0 0" 
+      rotation="-90 0 0" 
+      color="#0e23aa" 
+      scale="50 50" 
+      opacity="0"></a-plane>
+      <a-box 
+      position="0 0 0" 
+      rotation="0 90 0" 
+      material="src:#piso; repeat: 10 10; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale="20 .5 20" 
+      side="double"
+      static-body
+      ></a-box>
 
-      <a-box position="10 2.5 0" rotation="0 0 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+      <!-- Techo -->
+      <a-box 
+      position="0 5 0" 
+      rotation="0 90 0" 
+      material="src:#pared; repeat: 3 3; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      scale="12 .5 12" 
+      side="double"
+      ></a-box>
 
-      <a-box position="-10 2.5 0" rotation="0 0 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
+      <a-entity 
+       gltf-model="#estatua" 
+       position="0 0 -4" 
+       rotation="0 -180 0" 
+       scale=".2 .2 .2" 
+       material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"></a-entity>
 
-      <a-box position="0 2.5 10" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
-
-      <a-box position="0 2.5 -10" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale=".5 5 20" side="double"></a-box>
-
-      <a-box position="0 5.1 0" rotation="0 90 0" material="src:#pared; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale="20 .5 20" side="double"></a-box>
-
-      <a-box position="0 0 0" rotation="0 90 0" material="src:#cuadros; repeat: 10 10; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" scale="20 .5 20" side="double"></a-box>
-    </a-entity>
+      
 
       <!-- Puerta de salida -->
-      <a-entity position="0 0 9.7" rotation="0 -180 0"  event-set__1="_event: mouseenter; _target: #P1; material.color: red; transparent: true; opacity: 1"
-      event-set__2="_event: mouseleave; _target: #P1; material.color: black; transparent: true; opacity: 0">
-        <a-light type="spot" color="#FFffff" position="0 0 4" rotation="15 0 0" intensity="" angle="20" penumbra="0.4" castshadow="true"></a-light>
+      <a-entity
+      position="0 0 5.75"
+      rotation="0 180 0" 
+      event-set__1="_event: mouseenter; _target: #PS; intensity:3; color: #EB291A; angle:25"
+      event-set__2="_event: mouseleave; _target: #PS; intensity:1.5; color: #FFFFFF; angle:15">
+        <!-- Logo -->
+        <a-image 
+        src="#salida" 
+        position=".04 2.5 .1" 
+        width="1"
+        height=".5" 
+        side="double" 
+        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
+        ></a-image>
+       <!-- Spot puerta -->
+       <a-light 
+       id="PS"
+       type="spot" 
+       color="#FFffff" 
+       position="0 0 4" 
+       rotation="15 0 0" 
+       intensity="1.5" 
+       angle="15" 
+       penumbra="0.4" 
+       castshadow="true"
+       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500"
+       ></a-light>
+       <!-- Puerta -->
+       <a-entity 
+       gltf-model="#Puerta" 
+       position="0 0 .9" 
+       rotation="0 0 0" 
+       scale=".5 .5 .5" 
+       material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+       link="href: index.html" 
+       clickable></a-entity>
+       <!-- modelo animado -->
+       <a-entity 
+       gltf-model="#AS" 
+       position=".8 .21 0.5" 
+       rotation="0 0 0" 
+       scale="1 1 1" 
+       material="flatShading: true; metalness: 0; roughness: 0; castShadow: true; receiveShadow: true" 
+       animation-mixer
+       ></a-entity>
+      </a-entity>
 
-        <a-box id="P1" width="1" height="1" scale="1.66 2.8 1" depth="0.1" position=".05 1 -.05" material="color: black; transparent: true; opacity: 0"
-        ></a-box>
-
-        <a-entity gltf-model="#Puerta" position="0 0 .9" rotation="0 0 0" scale=".5 .5 .5" material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" link="href:index.html" class="clickable">
-        </a-entity>
-        <a-entity gltf-model="#Pared_bloques" position=".15 0 -0.05" rotation="0 0 0" scale="1 1 1" material="flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true"></a-entity>
-        <a-entity
-                text-geometry="value: The Beatles; size: 5; height: 3; bevelEnabled: true; bevelSize: 0.04; bevelThickness: 0.04; curveSegments: 5.020"
-                material="shader: standard; color:#c974cd" rotation="0 180 0" position="8.092 1.117 -6.635"
-                scale="0.190 0.190 0.190"></a-entity>
+      <a-assets>
+        <audio id="backgroundMusic" src="ruta/a/musica.mp3"></audio>
+        <video id="historia" src="https://www.youtube.com/watch?v=GDhAgTNQg3E&ab_channel=LasHistoriasdelRock"></video>
+      </a-assets>
+      
+      <a-entity sound="src: #backgroundMusic; autoplay: true; loop: true"></a-entity>
+      <a-video id="video" src="#historia" width="16" height="9" position="0 1.6 -5" scale=".5 .5. .5" ></a-video>
+      
+      <a-sphere id="playSphere" position="-1 1.25 -3" radius="0.2" color="#EF2D5E"
+        animation__click="property: scale; startEvents: click; to: 1.1 1.1 1.1; dir: alternate"
+        animation__color="property: color; startEvents: click; to: #FF0000; dir: alternate"
+        animation__reset="property: scale; startEvents: reset; delay: 2000; dur: 500; to: 1 1 1"
+        animation__resetColor="property: color; startEvents: reset; delay: 2000; dur: 500; to: #EF2D5E">>
+        
+      </a-sphere>
+      
+      <a-sphere id="pauseSphere" position="1 1.25 -3" radius="0.2" color="#FFC65D"
+        animation__click="property: scale; startEvents: click; to: 1.1 1.1 1.1; dir: alternate"
+        animation__color="property: color; startEvents: click; to: #0000FF; dir: alternate"
+        animation__reset="property: scale; startEvents: reset; delay: 2000; dur: 500; to: 1 1 1"
+        animation__resetColor="property: color; startEvents: reset; delay: 2000; dur: 500; to: #EF2D5E">>
+      </a-sphere>
+      
+      <script>
+        var videoEl = document.querySelector('#video');
+        var video = document.querySelector('#historia');
+        var backgroundMusic = document.querySelector('#backgroundMusic');
+        var playSphere = document.querySelector('#playSphere');
+        var pauseSphere = document.querySelector('#pauseSphere');
+      
+        playSphere.addEventListener('click', function () {
+          video.play();
+          backgroundMusic.pause();
+          playSphere.emit('reset');
+        });
+      
+        pauseSphere.addEventListener('click', function () {
+          video.pause();
+          backgroundMusic.play();
+          pauseSphere.emit('reset');
+        });
+      </script>
       <div class="a-loader-title" style="display: none;">Proyecto</div>
     </a-scene>
   </body>

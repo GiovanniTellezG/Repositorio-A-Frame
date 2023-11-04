@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Repertorio A-frame</title>
+  <title>Salon de la fama del Rock</title>
   <!-- icono del la pestaña -->
   <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
   <!-- link de la libreria para leer las etiquetas de aframe -->
@@ -36,7 +36,6 @@
 <!-- scipts para animacion de agua -->
 <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.ocean.min.js"></script>
-></script>
 <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
 
   <!-- scripts para truco de transparencia en modelos 3d-->
@@ -149,6 +148,14 @@
         position="0 0 -1" 
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011" material="color: #FFffff; shader: flat"></a-entity></a-entity></a-entity>
 
+        <!-- luz general -->
+        <a-sphere 
+          position="0 8 0" 
+          rotation="0 0 0"
+          material="color: #EF2D5E Cast castShadow: true"  
+          scale=".3 .3. .3" 
+          light="type: point; color: #0002FF; castShadow: True; intensity: .6;" 
+          ></a-sphere>
       <!-- Paredes -->
       <a-box 
         position="6 3 0" 
@@ -193,7 +200,7 @@
       <a-box 
       position="0 0 0" 
       rotation="0 90 0" 
-      material="src:#slab; repeat: 80 80; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      material="src:#slab; repeat: 50 50; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
       scale="20 .5 20" 
       side="double"
       static-body
@@ -213,7 +220,7 @@
       <a-entity 
       position="-5.5 0 2" 
       rotation="0 90 0"  
-      event-set__1="_event: mouseenter; _target: #P1; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P1; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P1; intensity:1.5; color: #FFFFFF; angle:15">
       <!-- Logo -->
       <a-image 
@@ -284,7 +291,7 @@
       <a-entity 
       position="-5.5 0 -2" 
       rotation="0 90 0"  
-      event-set__1="_event: mouseenter; _target: #P2; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P2; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P2; intensity:1.5; color: #FFFFFF; angle:15">
        <!-- Logo -->
         <a-image 
@@ -356,7 +363,7 @@
       <a-entity 
       position="5.5 0 2" 
       rotation="0 -90 0"
-      event-set__1="_event: mouseenter; _target: #P3; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P3; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P3; intensity:1.5; color: #FFFFFF; angle:15">
         <!-- Logo -->
         <a-image 
@@ -421,11 +428,12 @@
         animation-mixer
         ></a-entity>
       </a-entity>
+
       <!-- Led Zeppelin -->
       <a-entity 
       position="5.5 0 -2" 
       rotation="0 -90 0"
-      event-set__1="_event: mouseenter; _target: #P4; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P4; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P4; intensity:1.5; color: #FFFFFF; angle:15">
         <!-- Logo -->
         <a-image 
@@ -494,9 +502,10 @@
         
 <!-- norte -->
 <!-- Hendrix -->
-      <a-entity position="2 0 -5.5"
+      <a-entity
+      position="2 0 -5.5"
       rotation="0 0 0" 
-      event-set__1="_event: mouseenter; _target: #P5; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P5; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P5; intensity:1.5; color: #FFFFFF; angle:15">
         <!-- Logo -->
         <a-image 
@@ -561,10 +570,11 @@
        animation-mixer
        ></a-entity>
       </a-entity>
+    
 <!-- Elvis -->
       <a-entity position="-2 0 -5.5" 
       rotation="0 0 00" 
-      event-set__1="_event: mouseenter; _target: #P6; intensity:3; color: #CBFC3F; angle:25"
+      event-set__1="_event: mouseenter; _target: #P6; intensity:3; color: #00EA14; angle:25"
       event-set__2="_event: mouseleave; _target: #P6; intensity:1.5; color: #FFFFFF; angle:15">
         <!-- Logo -->
         <a-image 
@@ -648,13 +658,6 @@
           material="color:#FFffff" 
           scale=".3 .3. .3" 
           light="type: spot; color: #FFFFFF; castShadow: true; intensity: 2; angle:10; penumbra:0.5"
-          ></a-sphere>
-          <a-sphere 
-          position="0 8 0" 
-          rotation="0 0 0"
-          material="color: #EF2D5E receiveShadow: false"  
-          scale=".3 .3. .3" 
-          light="type: point; color: #0002FF; castShadow: True; intensity: .6;" 
           ></a-sphere>
          <!-- modelo -->
           <a-entity gltf-model="#Guitarra" position="0 .1 0" rotation="0 -90 0" scale="1 1 1" material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"></a-entity>
