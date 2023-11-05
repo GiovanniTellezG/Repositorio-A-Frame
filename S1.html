@@ -8,8 +8,11 @@
   <title>Salon Beatles</title>
   <!-- icono del la pestaña -->
   <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
-  <!-- link de la libreria para leer las etiquetas de aframe -->
+<!-- link de la libreria para leer las etiquetas de aframe -->
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+<!-- script mirror -->
+<script src="https://unpkg.com/aframe-mirror-component/dist/aframe-mirror-component.min.js"></script>
 <!-- script para gifs -->
 <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
 <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
@@ -30,13 +33,10 @@
 <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
 <script src="https://unpkg.com/aframe-particle-system-component@1.1.3/dist/aframe-particle-system-component.min.js"></script>
 <script src="https://unpkg.com/aframe-extras.ocean@latest/dist/aframe-extras.ocean.min.js"></script>
-<script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
 <!-- scripts para enviroments-->
 <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
 <!-- scipts para animacion de agua -->
-<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.ocean.min.js"></script>
-<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.1.0/dist/aframe-extras.min.js"></script>
 
   <!-- scripts para truco de transparencia en modelos 3d-->
   <script>
@@ -106,9 +106,19 @@
   <body>
     <a-scene light="defaultLightsEnabled: false" fog="color: #FFFFFF; far: 12; density:.5" shadow="type: basic" physics="gravity: 0; debug: false" reflection="directionalLight:a-light#dirlight;">
       <a-asset>
+
         <!-- Texturas -->
         <img id="piso" src="./Biblioteca/Sala 1 Beatles/Texturas/Piso.jpg">
         <img id="pared" src="./Biblioteca/Sala 1 Beatles/Texturas/Pared.jpg">
+         <!-- madera -->
+         <img id="M1diffuse" src="./Biblioteca/Texturas/M1/M1diff_1k.jpg">
+         <img id="M1roughness" src="./Biblioteca/Texturas/M1/M1rough_1k.jpg">
+         <img id="M1normal" src="./Biblioteca/Texturas/M1/M1nor_gl_1k.jpg">
+         <!-- Metal bronce -->
+         <img id="M2diffuse" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_COL_2K_METALNESS.png">
+         <img id="M2roughness" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_ROUGHNESS_2K_METALNESS.png">
+         <img id="M2normal" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_NRM_2K_METALNESS.png">
+         <img id="M2metalness" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_ROUGHNESS_2K_METALNESS.png">
 
         <!-- Señaletica -->
         <img id="salida" src="./Biblioteca/Sala 1 Beatles/Señaletica/Salida.png">
@@ -162,7 +172,7 @@
           rotation="0 0 0"
           material="color: #EBE501 Cast castShadow: true"  
           scale=".3 .3. .3" 
-          light="type: directional; color: #FFFFFF; castShadow: True; intensity: 1;" 
+          light="type: point; color: #FFFFFF; castShadow: True; intensity: 1;" 
           ></a-sphere>
       <!-- Paredes -->
       <a-box 
@@ -229,8 +239,8 @@
        rotation="0 -180 0" 
        scale=".2 .2 .2" 
        material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"></a-entity>
-              <!-- modelo animado -->
-              <a-entity 
+       <!-- modelo animado -->
+       <a-entity 
               gltf-model="#A1" 
               position="1 .21 -5" 
               rotation="0 0 0" 
@@ -238,10 +248,17 @@
               material="flatShading: true; metalness: 0; roughness: 0; castShadow: true; receiveShadow: true" 
               animation-mixer
               ></a-entity>
-       
-
-      
-
+      <!-- Prueba puerta -->
+      <a-entity position="4 1.5 0"> 
+        <a-box position="0 0 0" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".1 2 1" side="double"></a-box>
+        <!-- Marco -->
+        <a-box position="0 0 .5" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 2 .05" side="double" ></a-box>
+        <a-box position="0 0 -.5" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 2 .05" side="double"></a-box>
+        <a-box position="0 1 0" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 .05 1.05" side="double" ></a-box>
+        <!-- Pomo -->
+        <a-sphere position="-.11 -.1 .4" radius=".04" material="src: #M2diffuse; roughnessMap: #M2roughness; normalMap: #M2normal; metalnessMap: #M2metalness; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true"></a-sphere>
+      </a-entity>
+             
       <!-- Puerta de salida -->
       <a-entity
       position="0 0 5.75"
@@ -251,9 +268,10 @@
         <!-- Logo -->
         <a-image 
         src="#salida" 
-        position=".04 2.5 .1" 
+        position=".04 2 .1" 
         width="1"
         height=".5" 
+        scale=".5 .5 .5"
         side="double" 
         material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1"
         ></a-image>
@@ -272,13 +290,17 @@
        ></a-light>
        <!-- Puerta -->
        <a-entity 
-       gltf-model="#Puerta" 
-       position="0 0 .9" 
-       rotation="0 0 0" 
-       scale=".5 .5 .5" 
-       material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+       position="0 1.5 0"
+       rotation="0 90 0"
        link="href: index.html" 
-       clickable></a-entity>
+       clickable
+       ><a-box position="0 0 0" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".1 2.5 1.2" side="double"></a-box>
+       <!-- Marco -->
+       <a-box position="0 0 .6" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 2.5 .05" side="double" ></a-box>
+       <a-box position="0 0 -.6" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 2.5 .05" side="double"></a-box>
+       <a-box position="0 1.25 0" rotation="0 0 0" material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" scale=".15 .05 1.25" side="double" ></a-box>
+       <!-- Pomo -->
+       <a-sphere position="-.11 -.1 .4" radius=".04" material="src: #M2diffuse; roughnessMap: #M2roughness; normalMap: #M2normal; metalnessMap: #M2metalness; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true"></a-sphere></a-entity>
       </a-entity>
       
       <a-entity position="3 2 -5.5">
