@@ -133,6 +133,8 @@
 
         <!-- Señaletica -->
         <img id="salida" src="./Biblioteca/Señaletica/Salida.png">
+        <!-- logo -->
+        <img id="logo" src="./Biblioteca/Imagenes/logos/elton logo.png">
 
         <!-- modelos -->
         <a-asset-item id="escaparate" src="./Biblioteca/Sala 2 Elton/Modelos/Remplazos/lentes elton.glb"></a-asset-item>
@@ -180,7 +182,7 @@
           rotation="0 0 0"
           color="#FFFFFF"
           scale=".1 .1 .1" 
-          light="type: point; color: #FFFFFF; castshadow:true; intensity: 1" 
+          light="type: point; color: #FFFFFF; castshadow:true; intensity: 1; decay:2" 
           ></a-sphere>
       <!-- Paredes -->
       <a-box 
@@ -248,27 +250,38 @@
        rotation="0 30 0">
        <a-entity 
         gltf-model="#escaparate" 
-        position="0 .6 0" 
+        position="0 .77 0" 
         rotation="0 0 0" 
-        scale=".1 .1 .1" 
+        scale=".08 .08 .08" 
         material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"
-        static-body>
-       </a-entity>
+        animation="property: rotation; to: 0 360 0; loop: true; easing:linear; dur: 10000"></a-entity>>
+
        <!-- Caja mueble 1 -->
        <a-box 
          position="0 0 0" 
-         scale="1 1.2 1"  
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true"
+         scale=".6 1.5 .6"  
+         material="src:#000000; flatShading: true; receiveShadow:true; castShadow: true"
          static-body>
        </a-box>
        <!-- Caja mueble 2 -->
        <a-box 
         position="0 0 0"
         rotation="0 40 0" 
-        scale="1 1.2 1"  
-        material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true"
+        scale=".6 1.5 .6"  
+        material="src:#000000: flatShading: true; receiveShadow:true; castShadow: true"
         static-body>
       </a-box>
+      <!-- Spotlight -->
+      <a-light 
+      type="spot" 
+      color="#FFffff" 
+      position="0 5 0" 
+      rotation="-90 0 0" 
+      intensity="1" 
+      angle="5"
+      penumbra="0.4" 
+      castshadow="true"
+      ></a-light>
       </a-entity>
 
 
