@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salon de la fama del Rock</title>
   <!-- icono del la pestaña -->
-  <link rel="shortcut icon" href="./Biblioteca/Imagenes/gift/beatles 1.gif">
+  <link rel="shortcut icon" href="./Biblioteca/icono/icon.png">
   <!-- link de la libreria para leer las etiquetas de aframe -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
@@ -105,48 +105,51 @@
 </head>
   
   <body>
-    <a-scene light="defaultLightsEnabled: false" fog="color: #700900; far: 10; density:.5" shadow="type: basic" physics="gravity: 0; debug: false" reflection="directionalLight:a-light#dirlight;">
+    <a-scene light="defaultLightsEnabled: false" fog="color: #E11200; far: 10; density:.8" shadow="type: basic" physics="gravity: -9; debug: false" reflection="directionalLight:a-light#dirlight;">
       
       <a-asset>
-                <!-- Texturas -->
-         <!-- madera -->
+         <!-- Texturas -->
+          <!-- madera -->
          <img id="M1diffuse" src="./Biblioteca/Texturas/M1/M1diff_1k.jpg">
          <img id="M1roughness" src="./Biblioteca/Texturas/M1/M1rough_1k.jpg">
          <img id="M1normal" src="./Biblioteca/Texturas/M1/M1nor_gl_1k.jpg">
-         <!-- Metal bronce -->
+          <!-- Metal bronce -->
          <img id="M2diffuse" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_COL_2K_METALNESS.png">
          <img id="M2roughness" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_ROUGHNESS_2K_METALNESS.png">
          <img id="M2normal" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_NRM_2K_METALNESS.png">
          <img id="M2metalness" src="./Biblioteca/Texturas/M2/MetalBronzeWorn001_ROUGHNESS_2K_METALNESS.png">
-        <!-- imagenes -->
-        <img id="slab" src="./Biblioteca/Imagenes/slab.jpg">
-        <img id="pared" src="./Biblioteca/Imagenes/concreto.jpg">
-
-        <!-- logos -->
-
-        <img id="beatles_logo" src="./Biblioteca/Imagenes/logos/Beatles logo.png">
-        <img id="elton_logo" src="./Biblioteca/Imagenes/logos/elton logo.png">
-        <img id="led_logo" src="./Biblioteca/Imagenes/logos/led.png">
-        <img id="rolling_logo" src="./Biblioteca/Imagenes/logos/rolling logo.png">
-        <img id="hendrix_logo" src="./Biblioteca/Imagenes/logos/hendrix logo.png">
-        <img id="elvis_logo" src="./Biblioteca/Imagenes/logos/elvis logo.png">
-
-        <!-- modelos -->
-
-        <a-asset-item id="Puerta" src="./Biblioteca/Modelos/puerta_de_madera/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pilar" src="./Biblioteca/Modelos/marble_pilar/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pared" src="./Biblioteca/Modelos/grungy_brick_wall/scene.gltf"></a-asset-item>
-        <a-asset-item id="Guitarra" src="./Biblioteca/Modelos/fender_stratocaster__guitar/scene.gltf"></a-asset-item>
-        <a-asset-item id="Pared_bloques" src="./Biblioteca/Modelos/pared_y_piso_de_piedras/scene.gltf"></a-asset-item>
-        <a-asset-item id="Spotlight" src="./Biblioteca/Modelos/spotlight.gltf"></a-asset-item>
-
-        <!-- animados -->
         
-        <a-asset-item id="A2" src="./Biblioteca/Modelos/con animacion/A2/A2.gltf"></a-asset-item>
-        <a-asset-item id="A3" src="./Biblioteca/Modelos/con animacion/A3/A3.gltf"></a-asset-item>
-        <a-asset-item id="A4" src="./Biblioteca/Modelos/con animacion/A4/A4.gltf"></a-asset-item>
-        <a-asset-item id="A5" src="./Biblioteca/Modelos/con animacion/A5/A5.gltf"></a-asset-item>
-        <a-asset-item id="A6" src="./Biblioteca/Modelos/con animacion/A6/A6.gltf"></a-asset-item>
+         <!-- texturas -->
+         <img id="slab" src="./Biblioteca/Imagenes/slab.jpg">
+         <img id="pared" src="./Biblioteca/Imagenes/concreto.jpg">
+
+         <!-- audio -->
+         <audio id="Song" src="./Biblioteca/audio/Black Sabbath  War Pigs.mp3"></audio>
+
+         <!-- logos -->
+
+         <img id="beatles_logo" src="./Biblioteca/Imagenes/logos/Beatles logo.png">
+         <img id="elton_logo" src="./Biblioteca/Imagenes/logos/elton logo.png">
+         <img id="led_logo" src="./Biblioteca/Imagenes/logos/led.png">
+         <img id="rolling_logo" src="./Biblioteca/Imagenes/logos/rolling logo.png">
+         <img id="hendrix_logo" src="./Biblioteca/Imagenes/logos/hendrix logo.png">
+         <img id="elvis_logo" src="./Biblioteca/Imagenes/logos/elvis logo.png">
+
+         <!-- modelos -->
+
+         <a-asset-item id="Guitarra" src="./Biblioteca/Modelos/guitar/scene.gltf"></a-asset-item>
+         <a-asset-item id="instrumentos" src="./Biblioteca/Modelos/guitar2/guitardouble.glb"></a-asset-item>
+         <a-asset-item id="sinte" src="./Biblioteca/Modelos/yamaha_dgx_660_piano.glb"></a-asset-item>
+         <a-asset-item id="bateria" src="./Biblioteca/Modelos/drumkitss.gltf"></a-asset-item>
+
+
+         <!-- animados -->
+        
+         <a-asset-item id="A2" src="./Biblioteca/Modelos/con animacion/A2/A2.gltf"></a-asset-item>
+         <a-asset-item id="A3" src="./Biblioteca/Modelos/con animacion/A3/A3.gltf"></a-asset-item>
+         <a-asset-item id="A4" src="./Biblioteca/Modelos/con animacion/A4/A4.gltf"></a-asset-item>
+         <a-asset-item id="A5" src="./Biblioteca/Modelos/con animacion/A5/A5.gltf"></a-asset-item>
+         <a-asset-item id="A6" src="./Biblioteca/Modelos/con animacion/A6/A6.gltf"></a-asset-item>
       </a-asset>
 
       <!-- camara -->
@@ -158,23 +161,31 @@
         <a-entity cursor="fuse: false;" 
         position="0 0 -1" 
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02" material="color: #FFffff; shader: flat"></a-entity></a-entity></a-entity>
-
-        <!-- luz general -->
-        <a-sphere 
-          position="0 8 0" 
-          rotation="0 0 0"
-          material="color: #EF2D5E Cast castShadow: true"  
-          scale=".3 .3. .3" 
-          light="type: point; color: #0002FF; castShadow: True; intensity: .6;" 
-          ></a-sphere>
-          <a-sphere 
+        
+        <!-- luces -->
+        <!-- general -->
+        <a-light 
           position="0 5 0" 
-          rotation="-65 0 0" 
-          material="color:#FFffff" 
-          scale=".3 .3. .3" 
-          light="type: spot; color: #FCE93F; castShadow: true; intensity: 2; angle:20; penumbra:0.5" 
-          animation="property: rotation; to: -115 0 ; dir: alternate; easing: linear; loop: true;dur: 2000"
-          ></a-sphere>
+          type="point" 
+          color="#E11200" 
+          castShadow="true" 
+          intensity=".6">
+        </a-light>
+        <!-- spot centro -->
+        <a-light 
+          position="0 5 0" 
+          type="spot" 
+          color="#E11200" 
+          castShadow="true" 
+          intensity="2" 
+          angle="40" 
+          decay="2"
+          penumbra="0.5" 
+          rotation="-30 0 0"
+          animation="property: rotation; to: -150 0 0 ; dir: alternate; easing: linear; loop: true; dur: 2000">
+        </a-light>
+
+
       <!-- Paredes -->
       <a-box 
         position="6 3 0" 
@@ -219,7 +230,7 @@
       <a-box 
       position="0 0 0" 
       rotation="0 90 0" 
-      material="src:#slab; repeat: 50 50; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
+      material="src:#slab; repeat: 20 20; flatShading: true; metalness: 0; roughness: 1; receiveShadow:true; castShadow: true" 
       scale="20 .5 20" 
       side="double"
       static-body
@@ -237,9 +248,9 @@
 <!-- este -->
       <!-- beatles -->
       <a-entity 
-       position="-5.5 0 2" 
-       rotation="0 90 0"  
-       event-set__1="_event: mouseenter; _target: #P1; intensity:3; color: #00EA14; angle:25"
+       position="-3.5 0 -5.5" 
+       rotation="0 0 0"  
+       event-set__1="_event: mouseenter; _target: #P1; intensity:3; color: #00EA14; angle:20"
        event-set__2="_event: mouseleave; _target: #P1; intensity:2; color: #FFFFFF; angle:15"> 
        <!-- Logo -->
        <a-image 
@@ -257,12 +268,12 @@
        type="spot" 
        color="#FFffff" 
        position="0 0 4" 
-       rotation="15 0 0" 
-       intensity="1.5" 
-       angle="20" 
+       rotation="0 0 0" 
+       intensity="2" 
+       angle="15" 
        penumbra="0.4" 
        castshadow="true"
-       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
+       animation="property: rotation; to: 25 0 ; dir: alternate; easing: linear; loop: true;dur: 1500">
       </a-light>
       <!-- Puerta -->
       <a-entity 
@@ -311,9 +322,9 @@
       
       <!-- Elton John -->
       <a-entity 
-      position="-5.5 0 -2" 
-      rotation="0 90 0"  
-      event-set__1="_event: mouseenter; _target: #P2; intensity:3; color: #00EA14; angle:25"
+      position="0 0 -5.5" 
+      rotation="0 0 0"  
+      event-set__1="_event: mouseenter; _target: #P2; intensity:3; color: #00EA14; angle:20"
       event-set__2="_event: mouseleave; _target: #P2; intensity:2; color: #FFFFFF; angle:15">
        <!-- Logo -->
         <a-image 
@@ -331,12 +342,12 @@
        type="spot" 
        color="#FFffff" 
        position="0 0 4" 
-       rotation="15 0 0" 
-       intensity="1.5" 
-       angle="20" 
+       rotation="0 0 0" 
+       intensity="2" 
+       angle="14" 
        penumbra="0.4" 
        castshadow="true"
-       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
+       animation="property: rotation; to: 25 0 ; dir: alternate; easing: easeInQuad; loop: true;dur: 1500">
       </a-light>
       <!-- Puerta -->
       <a-entity 
@@ -383,12 +394,11 @@
       </a-entity>
       </a-entity>
 
-<!-- oeste -->
      <!-- Rolling stones -->
       <a-entity 
-      position="5.5 0 2" 
-      rotation="0 -90 0"
-      event-set__1="_event: mouseenter; _target: #P3; intensity:3; color: #00EA14; angle:25"
+      position="3.5 0 -5.5" 
+      rotation="0 0 0"
+      event-set__1="_event: mouseenter; _target: #P3; intensity:3; color: #00EA14; angle:20"
       event-set__2="_event: mouseleave; _target: #P3; intensity:2; color: #FFFFFF; angle:15">
         <!-- Logo -->
         <a-image 
@@ -406,12 +416,12 @@
        type="spot" 
        color="#FFffff" 
        position="0 0 4" 
-       rotation="15 0 0" 
-       intensity="1.5" 
-       angle="20" 
+       rotation="0 0 0" 
+       intensity="2" 
+       angle="15" 
        penumbra="0.4" 
        castshadow="true"
-       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
+       animation="property: rotation; to: 25 0 ; dir: alternate; easing: easeOutQuad; loop: true;dur: 1500">
       </a-light>
       <!-- Puerta -->
       <a-entity 
@@ -458,241 +468,58 @@
       </a-entity>
       </a-entity>
 
-      <!-- Led Zeppelin -->
+      <!-- modelos -->
+      <!-- guitarra 1 -->
       <a-entity 
-      position="5.5 0 -2" 
-      rotation="0 -90 0"
-      event-set__1="_event: mouseenter; _target: #P4; intensity:3; color: #00EA14; angle:25"
-      event-set__2="_event: mouseleave; _target: #P4; intensity:2; color: #FFFFFF; angle:15">
-        <!-- Logo -->
-        <a-image 
-        src="#led_logo" 
-        position=".04 2 .1" 
-        width="2"
-        height="1" 
-        scale=".5 .5"
-        side="double" 
-        material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1">
-       </a-image>
-       <!-- Spot puerta -->
-       <a-light 
-        id="P4"
-        type="spot" 
-        color="#FFffff" 
-        position="0 0 4" 
-        rotation="15 0 0" 
-        intensity="1.5" 
-        angle="20" 
-        penumbra="0.4" 
-        castshadow="true"
-        animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
-       </a-light>
-       <!-- Puerta -->
-       <a-entity 
-        position="0 1.5 0"
-        rotation="0 90 0"
-        link="href: S4.html" 
-        clickable>
-        <!-- tambor puerta -->
-         <a-box 
-          position="0 0 0" 
-          rotation="0 0 0" 
-          material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-          scale=".1 2.5 1.2" 
-          side="double">
-         </a-box>
-         <!-- Marcos -->
-         <a-box 
-          position="0 0 .6" 
-          rotation="0 0 0" 
-          material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-          scale=".15 2.5 .05" 
-          side="double">
-         </a-box>
-         <a-box 
-          position="0 0 -.6" 
-          rotation="0 0 0" 
-          material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-          scale=".15 2.5 .05" 
-          side="double">
-         </a-box>
-         <a-box 
-          position="0 1.25 0" 
-          rotation="0 0 0" 
-          material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-          scale=".15 .05 1.25" 
-          side="double">
-         </a-box>
-         <!-- Pomo -->
-         <a-sphere 
-          position="-.11 -.1 .4" 
-          radius=".04" 
-          material="src: #M2diffuse; roughnessMap: #M2roughness; normalMap: #M2normal; metalnessMap: #M2metalness; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true">
-         </a-sphere>
-        </a-entity>
-       </a-entity>
-        
-<!-- norte -->
-<!-- Hendrix -->
-      <a-entity
-      position="3 0 -5.5"
-      rotation="0 0 0" 
-      event-set__1="_event: mouseenter; _target: #P5; intensity:3; color: #00EA14; angle:25"
-      event-set__2="_event: mouseleave; _target: #P5; intensity:2; color: #FFFFFF; angle:15">
-        <!-- Logo -->
-        <a-image 
-        src="#hendrix_logo" 
-        position=".04 2 .1" 
-       width="1.5"
-       height="2" 
-       scale=".5 .5"
-       side="double" 
-       material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1">
-      </a-image>
-      <!-- Spot puerta -->
-      <a-light 
-       id="P5"
-       type="spot" 
-       color="#FFffff" 
-       position="0 0 4" 
-       rotation="15 0 0" 
-       intensity="1.5" 
-       angle="20" 
-       penumbra="0.4" 
-       castshadow="true"
-       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
-      </a-light>
-      <!-- Puerta -->
+       gltf-model="#Guitarra" 
+       position="0 3.5 -5.5" 
+       rotation="0 -90 0" 
+       scale=".3 .3 .3" 
+       material="flatShading: true; metalness: 1; roughness: 1; castShadow: true; receiveShadow: true">
+      </a-entity>
+      <!-- instrumentos -->
+      <!-- Guitarra -->
       <a-entity 
-       position="0 1.5 0"
+       gltf-model="#instrumentos" 
+       position="4 0.3 2" 
+       rotation="0 230 0" 
+       scale=".5 .5 .5" 
+       material="flatShading: true; metalness: 1; roughness: 1; castShadow: true; receiveShadow: true"
+       static-body>
+      </a-entity>
+      <!-- sintetizador -->
+      <a-entity 
+       gltf-model="#sinte" 
+       position="-3 1 2" 
+       rotation="0 -30 0" 
+       scale="1.1 1.1 1.1" 
+       material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true">
+      <a-box
+       scale=".7 1.5 2"
+       position="0 0 0"
        rotation="0 90 0"
-       link="href: S5.html" 
-       clickable>
-       <!-- tambor puerta -->
-        <a-box 
-         position="0 0 0" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".1 2.5 1.2" 
-         side="double">
-        </a-box>
-        <!-- Marcos -->
-        <a-box 
-         position="0 0 .6" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 2.5 .05" 
-         side="double">
-        </a-box>
-        <a-box 
-         position="0 0 -.6" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 2.5 .05" 
-         side="double">
-        </a-box>
-        <a-box 
-         position="0 1.25 0" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 .05 1.25" 
-         side="double">
-        </a-box>
-        <!-- Pomo -->
-        <a-sphere 
-         position="-.11 -.1 .4" 
-         radius=".04" 
-         material="src: #M2diffuse; roughnessMap: #M2roughness; normalMap: #M2normal; metalnessMap: #M2metalness; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true">
-        </a-sphere>
-      </a-entity>
-      </a-entity>
-    
-<!-- Elvis -->
-      <a-entity position="-3 0 -5.5" 
-      rotation="0 0 00" 
-      event-set__1="_event: mouseenter; _target: #P6; intensity:3; color: #00EA14; angle:25"
-      event-set__2="_event: mouseleave; _target: #P6; intensity:2; color: #FFFFFF; angle:15">
-        <!-- Logo -->
-        <a-image 
-        src="#elvis_logo" 
-        position=".04 2 .1" 
-       width="1"
-       height="2" 
-       scale=".5 .5"
-       side="double" 
-       material="shader: standard; flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true; transparent: true; opacity: 1">
-      </a-image>
-      <!-- Spot puerta -->
-      <a-light 
-       id="P6"
-       type="spot" 
-       color="#FFffff" 
-       position="0 0 4" 
-       rotation="15 0 0" 
-       intensity="1.5" 
-       angle="20" 
-       penumbra="0.4" 
-       castshadow="true"
-       animation="property: rotation; to: 5 0 ; dir: alternate; easeInElastic: linear; loop: true;dur: 1500">
-      </a-light>
-      <!-- Puerta -->
-      <a-entity 
-       position="0 1.5 0"
-       rotation="0 90 0"
-       link="href: S&.html" 
-       clickable>
-       <!-- tambor puerta -->
-        <a-box 
-         position="0 0 0" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".1 2.5 1.2" 
-         side="double">
-        </a-box>
-        <!-- Marcos -->
-        <a-box 
-         position="0 0 .6" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 2.5 .05" 
-         side="double">
-        </a-box>
-        <a-box 
-         position="0 0 -.6" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 2.5 .05" 
-         side="double">
-        </a-box>
-        <a-box 
-         position="0 1.25 0" 
-         rotation="0 0 0" 
-         material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:1 1; flatShading: true; receiveShadow:true; castShadow: true" 
-         scale=".15 .05 1.25" 
-         side="double">
-        </a-box>
-        <!-- Pomo -->
-        <a-sphere 
-         position="-.11 -.1 .4" 
-         radius=".04" 
-         material="src: #M2diffuse; roughnessMap: #M2roughness; normalMap: #M2normal; metalnessMap: #M2metalness; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true">
-        </a-sphere>
-      </a-entity>
+       material="opacity: 0"
+       static-body></a-box>
       </a-entity>
 
-
-      <!-- guitarra -->
-      <a-entity position=" 0 0 -3" rotation="0 0 0">
-          <a-sphere 
-          position="0 5 0" 
-          rotation="-90 0 0" 
-          material="color:#FFffff" 
-          scale=".3 .3. .3" 
-          light="type: spot; color: #FFFFFF; castShadow: true; intensity: 2; angle:10; penumbra:0.5"
-          ></a-sphere>
-         <!-- modelo -->
-          <a-entity gltf-model="#Guitarra" position="0 .1 0" rotation="0 -90 0" scale="1 1 1" material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true"></a-entity>
+      <!-- bateria -->
+      <a-entity 
+      gltf-model="#bateria" 
+      position="1 .22 3" 
+      rotation="0 180 0" 
+      scale="1.5 1.5 1.5" 
+      material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true">
+      <a-box
+      scale="2 1.5 1"
+      position="0.1 .7.5 0"
+      material="opacity: 0"
+      static-body></a-box>
       </a-entity>
+
+      <!-- musica de fondo --> 
+      <a-entity sound="src:#Song; autoplay: true; loop: true; volume: 0.5"></a-entity>
+
+</a-scene>
 
       <div class="a-loader-title" style="display: none;">Proyecto</div>
     </a-scene>

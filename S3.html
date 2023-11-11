@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salon Beatles</title>
+  <title>Salon Rolling Stones</title>
   <!-- icono del la pestaña -->
-  <link rel="shortcut icon" href="./Biblioteca/Gifs/nerv.gif">
+  <link rel="shortcut icon" href="./Biblioteca/icono/icon.png">
 <!-- link de la libreria para leer las etiquetas de aframe -->
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
@@ -179,6 +179,7 @@
 
         <!-- luz general -->
         <a-sphere 
+          id="luzGeneral"
           position="0 30 0" 
           rotation="0 0 0"
           color="#FFFFFF"
@@ -304,6 +305,13 @@
        </a-entity>
 
     <!-- vallas -->
+            <a-entity
+            gltf-model="#valla" 
+            material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
+            scale="1 1 1" 
+            position="5 0 8"
+            rotation="0 -90 0">
+          </a-entity>
     <a-entity>
      <!-- Vallas este -->
      <a-entity>
@@ -548,27 +556,31 @@
      </a-light>
      <!-- Script funcionamiento -->
      <script>
-       var videoEl = document.querySelector('#video');
-       var video = document.querySelector('#historia');
-       var playPauseBox = document.querySelector('#playPauseBox');
-       var playPauseText = document.querySelector('#playPauseText');
-       var spotLight = document.querySelector('#spotLight');
+      var videoEl = document.querySelector('#video');
+      var video = document.querySelector('#historia');
+      var playPauseBox = document.querySelector('#playPauseBox');
+      var playPauseText = document.querySelector('#playPauseText');
+      var spotLight = document.querySelector('#spotLight');
+      var luzGeneral = document.querySelector('#luzGeneral'); // Asegúrate de agregar el id a tu luz general
     
-       playPauseBox.addEventListener('click', function () {
-         if (video.paused) {
-           video.play();
-           videoEl.setAttribute('animation', 'property: material.opacity; to: 1; dur: 1000');
-           playPauseText.setAttribute('value', 'Pause');
-           spotLight.setAttribute('animation', 'property: intensity; to: 1; dur: 1000');
-         } else {
-           video.pause();
-           videoEl.setAttribute('animation', 'property: material.opacity; to: 0; dur: 1000');
-           playPauseText.setAttribute('value', 'Play');
-           spotLight.setAttribute('animation', 'property: intensity; to: 0; dur: 1000');
-         }
-         playPauseBox.emit('reset');
-       });
-     </script>
+      playPauseBox.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          videoEl.setAttribute('animation', 'property: material.opacity; to: 1; dur: 1000');
+          playPauseText.setAttribute('value', 'Pause');
+          spotLight.setAttribute('animation', 'property: intensity; to: 1; dur: 1000');
+          luzGeneral.setAttribute('animation', 'property: light.intensity; to: .2; dur: 1000'); // Ajusta la intensidad de la luz general
+        } else {
+          video.pause();
+          videoEl.setAttribute('animation', 'property: material.opacity; to: 0; dur: 1000');
+          playPauseText.setAttribute('value', 'Play');
+          spotLight.setAttribute('animation', 'property: intensity; to: 0; dur: 1000');
+          luzGeneral.setAttribute('animation', 'property: light.intensity; to: 1; dur: 1000'); // Ajusta la intensidad de la luz general
+        }
+        playPauseBox.emit('reset');
+      });
+    </script>
+    
     </a-entity>
     
       <!-- Reproductor -->
@@ -578,37 +590,30 @@
        id="sonido">
       </a-entity>
       <a-entity 
-       position="6.5 .8 7" 
+       position="2.85 1.5 7" 
        rotation="0 180 0"
        static-body>
-        </a-box>
-        <!-- Caja mueble -->
-          <a-box 
-           position="0 0 0" 
-           scale="4.5 1.5 .5"  
-           material="src: #M1diffuse; roughnessMap: #M1roughness; normalMap: #M!normal; repeat:2 2; flatShading: true; receiveShadow:true; castShadow: true">
-          </a-box>
         <!-- rockola -->
         <a-entity 
          gltf-model="#rockola" 
          material="flatShading: true; metalness: 0; roughness: 1; castShadow: true; receiveShadow: true" 
          scale=".3 .3 .3" 
          position="0 .8 0"
-         rotation="30 0 0">
+         rotation="90 0 0">
         </a-entity>
         <!-- disco -->
         <a-image 
          id="disco"
          src="#discorolling" 
-         position="-.06 .87 .05" 
+         position="-.06 .8 .1" 
          scale=".3 .3 .3" 
-         rotation="-60 0 0" >
+         rotation="0 0 0" >
         </a-image>
         <!-- Controles de reproducción -->
         <!-- Play -->
         <a-box 
          id="playButton" 
-         position="-.7 .8 .2" 
+         position="-.2 .5 .2" 
          color="#FFFFFF" 
          scale=".15 .15 .15">
           <a-text 
@@ -621,7 +626,7 @@
         <!-- pausa -->
         <a-box 
          id="pauseButton" 
-         position=".7 .8 .2" 
+         position=".2 .5 .2" 
          color="#000000" 
          scale=".15 .15 .15">
           <a-text 
@@ -639,16 +644,21 @@
         var disco = document.querySelector('#disco');
         var playButton = document.querySelector('#playButton');
         var pauseButton = document.querySelector('#pauseButton');
-    
+        
+        // Almacena la rotación original del disco
+        var originalRotation = disco.getAttribute('rotation');
+      
         playButton.addEventListener('click', function () {
           sonido.components.sound.playSound();
-          disco.setAttribute('animation', 'property: rotation; to: -60 0 360; loop: true; dur: 1000; easing: linear');
+          disco.setAttribute('animation', 'property: rotation; to: 0 0 360; loop: true; dur: 1000; easing: linear');
         });
-    
+      
         pauseButton.addEventListener('click', function () {
           sonido.components.sound.pauseSound();
           disco.removeAttribute('animation');
-          disco.setAttribute('animation', 'property: rotation; to: -60 0 0; dur: 1000; easing: linear');
+          
+          // Restablece la rotación del disco a su rotación original de manera suave
+          disco.setAttribute('animation', 'property: rotation; to: ' + originalRotation.x + ' ' + originalRotation.y + ' ' + originalRotation.z + '; dur: 1000; easing: easeInOutQuad');
         });
       </script>
 
